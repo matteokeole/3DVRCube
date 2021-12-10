@@ -5,7 +5,7 @@ const R = {x: 0, y: 0}, // Cube rotation values
 	move = e => {
 		R.x = e.gamma;
 		R.y = e.beta;
-		let transform = `rotateX(${-R.y.toFixed(P)}deg) rotateY(${-R.x.toFixed(P)}deg)`;
+		let transform = `rotateX(${R.y.toFixed(P)}deg) rotateY(${-R.x.toFixed(P)}deg)`;
 		cube.style["-webkit-transform"] = transform;
 		cube.style.transform = transform;
 		shadowFacing(R.y)
