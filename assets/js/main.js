@@ -1,11 +1,5 @@
 // Cube rotation values
-const R = {
-		x: 45,
-		y: -22.5,
-		now: {x: 0, y: 0},
-		on: {x: 0, y: 0},
-		old: {x: 0, y: 0}
-	},
+const R = {x: 0, y: 0},
 	w2 = window.innerWidth / 2, // Window width / 2
 	h2 = window.innerHeight / 2, // Window height / 2
 	// Parameters
@@ -19,7 +13,7 @@ const R = {
 		if (R.x > 360) R.x -= 360;
 		if (R.y < -90) R.y = -90;
 		if (R.y > 90) R.y = 90;
-		let transform = `rotateX(${R.y.toFixed(P)}deg) rotateY(${R.x.toFixed(P)}deg)`;
+		let transform = `rotateX(${R.y}deg) rotateY(${R.x}deg)`;
 		cube.style["-webkit-transform"] = transform;
 		cube.style.transform = transform;
 		shadowFacing(R.y)
@@ -60,26 +54,22 @@ const R = {
 			cube.style["-ms-transform"] = transform;
 			cube.style.transform = transform;
 			shadowFacing(R.y)
-		},
-		up: function() {
-			document.removeEventListener("mousemove", M.move);
-			document.removeEventListener("touchmove", M.move)
 		}
 	},*/
 	shadowFacing = ry => {
 		// Apply a shadow to the faces
-		cubeTop.style.boxShadow = "inset 0 0 0 100px rgba(255, 255, 255, " + (Math.abs((180 - Math.abs(ry)) / 180 - 0.5)) + ")";
-		cubeBottom.style.boxShadow = "inset 0 0 0 100px rgba(0, 0, 0, " + (Math.abs((180 - Math.abs(ry)) / 180 - 0.5)) + ")";
+		cubeTop.style.boxShadow = `inset 0 0 0 100px rgba(255, 255, 255, ${Math.abs((180 - Math.abs(ry)) / 180 - 0.5))})`;
+		cubeBottom.style.boxShadow = `inset 0 0 0 100px rgba(0, 0, 0, ${Math.abs((180 - Math.abs(ry)) / 180 - 0.5))})`;
 		if (R.y >= 0) {
-			cubeFront.style.boxShadow = "inset 0 0 0 100px rgba(255, 255, 255, " + (Math.abs((90 - Math.abs(ry)) / 180 - 0.5)) + ")";
-			cubeBack.style.boxShadow = "inset 0 0 0 100px rgba(255, 255, 255, " + (Math.abs((90 - Math.abs(ry)) / 180 - 0.5)) + ")";
-			cubeLeft.style.boxShadow = "inset 0 0 0 100px rgba(255, 255, 255, " + (Math.abs((90 - Math.abs(ry)) / 180 - 0.5)) + ")";
-			cubeRight.style.boxShadow = "inset 0 0 0 100px rgba(255, 255, 255, " + (Math.abs((90 - Math.abs(ry)) / 180 - 0.5)) + ")"
+			cubeFront.style.boxShadow = `inset 0 0 0 100px rgba(255, 255, 255, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5))})`;
+			cubeBack.style.boxShadow = `inset 0 0 0 100px rgba(255, 255, 255, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5))})`;
+			cubeLeft.style.boxShadow = `inset 0 0 0 100px rgba(255, 255, 255, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5))})`;
+			cubeRight.style.boxShadow = `inset 0 0 0 100px rgba(255, 255, 255, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5))})`
 		} else if (R.y < 0) {
-			cubeFront.style.boxShadow = "inset 0 0 0 100px rgba(0, 0, 0, " + (Math.abs((90 - Math.abs(ry)) / 180 - 0.5)) + ")";
-			cubeBack.style.boxShadow = "inset 0 0 0 100px rgba(0, 0, 0, " + (Math.abs((90 - Math.abs(ry)) / 180 - 0.5)) + ")";
-			cubeLeft.style.boxShadow = "inset 0 0 0 100px rgba(0, 0, 0, " + (Math.abs((90 - Math.abs(ry)) / 180 - 0.5)) + ")";
-			cubeRight.style.boxShadow = "inset 0 0 0 100px rgba(0, 0, 0, " + (Math.abs((90 - Math.abs(ry)) / 180 - 0.5)) + ")"
+			cubeFront.style.boxShadow = `inset 0 0 0 100px rgba(0, 0, 0, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5))})`;
+			cubeBack.style.boxShadow = `inset 0 0 0 100px rgba(0, 0, 0, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5))})`;
+			cubeLeft.style.boxShadow = `inset 0 0 0 100px rgba(0, 0, 0, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5))})`;
+			cubeRight.style.boxShadow = `inset 0 0 0 100px rgba(0, 0, 0, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5))})`
 		}
 	},
 	// Cube & faces selectors
