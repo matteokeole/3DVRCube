@@ -23,7 +23,7 @@ const R = {x: 0, y: 0}, // Cube rotation values
 			})
 		}
 	},
-	// Cube & faces selectors
+	// Cube selector
 	cube = document.querySelector("#cube");
 // Device orientation change event
 if (DeviceOrientationEvent) addEventListener("deviceorientation", move);
