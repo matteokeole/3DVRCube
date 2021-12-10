@@ -8,7 +8,7 @@ const R = {x: 0, y: 0},
 	// Mouse events
 	move = e => {
 		R.x = e.beta;
-		R.y = e.gamma;
+		R.y = 0;
 		if (R.x < -360) R.x += 360;
 		if (R.x > 360) R.x -= 360;
 		if (R.y < -90) R.y = -90;
