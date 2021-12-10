@@ -8,13 +8,10 @@ const R = {x: 0, y: 0},
 	// Mouse events
 	move = e => {
 		R.x = e.gamma;
-		// R.y = -e.beta;
-		R.y = 0;
-		/*if (R.x < -360) R.x += 360;
-		if (R.x > 360) R.x -= 360;*/
+		R.y = -e.beta;
 		// if (R.y < -45) R.y = -45;
 		// if (R.y > 45) R.y = 45;
-		document.querySelector(".test").textContent = `R.x = ${R.x}`;
+		document.querySelector(".test").textContent = `R.x = ${R.x}<br>R.y = ${R.y}`;
 		let transform = `rotateX(${R.y}deg) rotateY(${-R.x}deg)`;
 		cube.style["-webkit-transform"] = transform;
 		cube.style.transform = transform;
