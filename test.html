@@ -1,48 +1,48 @@
+<div class="garden">
+	<div class="ball"></div>
+</div>
 <style>
 	body {margin: 0}
 
 	/* Ball container */
 	.garden {
-		width: 100vw;
-		height: 100vh;
+		width: 200px;
+		height: 200px;
 		position: relative;
+		background-color: #ddd
 	}
 
 	/* Moving ball */
 	.ball {
 		width: 30px;
 		height: 30px;
-		top: calc(50vh - 15px);
-		left: calc(50vw - 15px);
+		top: 85px;
+		left: 85px;
 		position: absolute;
 		border-radius: 50%;
 		background-color: #ff9800
 	}
 </style>
-<div class="garden">
-	<div class="ball"></div>
-</div>
-<span class="output"></span>
 <script>
-	const ball = document.querySelector(".ball"),
-		garden = document.querySelector(".garden"),
-		output = document.querySelector(".output"),
-		maxX = garden.clientWidth  - ball.clientWidth,
+	const garden = document.querySelector(".garden"),
+		ball = garden.querySelector(".ball"),
+		maxX = garden.clientWidth - ball.clientWidth,
 		maxY = garden.clientHeight - ball.clientHeight,
-		handleOrientation = e => {
-			let x = e.beta, // In degree in the range [-180, 180]
-				y = e.gamma; // In degree in the range [-90, 90]
-			// output.textContent = `Beta: ${x}\nGamma: ${y}`;
-			// Because we don't want to have the device upside down, we constrain the x value to the range [-90, 90]
-			if (x > 90) x = 90;
-			if (x < -90) x = -90;
-			// To make computation easier we shift the range of x and y to [0, 180]
-			x += 90;
-			y += 90;
-			// 10 is half the size of the ball
-			// It center the positioning point to the center of the ball
-			ball.style.top = `${(maxY * y / 180 - (ball.innerHeight / 2))}px`;
-			ball.style.left = `${(maxX * x / 180 - (ball.innerWidth / 2))}px`
-		};
-	addEventListener("deviceorientation", handleOrientation)
+	animate = e => {
+		let x = e.beta, // In degree in the range [-180, 180]
+			y = e.gamma; // In degree in the range [-90, 90]
+		// Because we don't want to have the device upside down, we constrain the x value to the range [-90, 90]
+		if (x > 90) x = 90;
+		if (x < -90) x = -90;
+		// To make computation easier we shift the range of x and y to [0, 180]
+		x += 90;
+		y += 90;
+		// 10 is half the size of the ball
+		// It center the positioning point to the center of the ball
+		ball.style.top = `${(maxY * y / 180 - (ball.innerHeight / 2))}px`;
+		ball.style.left = `${(maxX * x / 180 - (ball.innerWidth / 2))}px`
+	};
+	if (DeviceOrientationEvent) {
+		document.addEventListener("deviceorientation", animate)
+	}
 </script>
