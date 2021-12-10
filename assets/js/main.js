@@ -7,8 +7,8 @@ const R = {x: 0, y: 0},
 	P = 2, // Smooth motion (higher number = smoother motion)
 	// Mouse events
 	move = e => {
+		R.x = e.gamma;
 		R.y = e.beta;
-		R.x = 0;
 		if (R.x < -360) R.x += 360;
 		if (R.x > 360) R.x -= 360;
 		if (R.y < -90) R.y = -90;
