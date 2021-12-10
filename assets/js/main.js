@@ -10,9 +10,10 @@ const R = {x: 0, y: 0},
 		R.x = e.gamma;
 		R.y = -e.beta;
 		/*if (R.x < -360) R.x += 360;
-		if (R.x > 360) R.x -= 360;
-		if (R.y < -90) R.y = -90;
-		if (R.y > 90) R.y = 90;*/
+		if (R.x > 360) R.x -= 360;*/
+		if (R.y < -45) R.y = -45;
+		if (R.y > 45) R.y = 45;
+		document.querySelector(".test").textContent = `R.y = ${R.y}`;
 		let transform = `rotateX(${R.y + 90}deg) rotateY(${-R.x}deg)`;
 		cube.style["-webkit-transform"] = transform;
 		cube.style.transform = transform;
