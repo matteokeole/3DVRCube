@@ -12,7 +12,19 @@ const R = {
 	S = 4, // Sensitivity (higher number = lower sens)
 	P = 2, // Smooth motion (higher number = smoother motion)
 	// Mouse events
-	M = {
+	move = e => {
+		R.x = e.beta;
+		R.y = e.gamma;
+		if (R.x < -360) R.x += 360;
+		if (R.x > 360) R.x -= 360;
+		if (R.y < -90) R.y = -90;
+		if (R.y > 90) R.y = 90;
+		let transform = `rotateX(${R.y.toFixed(P)}deg) rotateY(${R.x.toFixed(P)}deg)`;
+		cube.style["-webkit-transform"] = transform;
+		cube.style.transform = transform;
+		shadowFacing(R.y)
+	},
+	/*M = {
 		down: function(e) {
 			if (!e.clientX) {
 				// Touch screen
@@ -53,8 +65,8 @@ const R = {
 			document.removeEventListener("mousemove", M.move);
 			document.removeEventListener("touchmove", M.move)
 		}
-	},
-	shadowFacing = function(ry) {
+	},*/
+	shadowFacing = ry => {
 		// Apply a shadow to the faces
 		cubeTop.style.boxShadow = "inset 0 0 0 100px rgba(255, 255, 255, " + (Math.abs((180 - Math.abs(ry)) / 180 - 0.5)) + ")";
 		cubeBottom.style.boxShadow = "inset 0 0 0 100px rgba(0, 0, 0, " + (Math.abs((180 - Math.abs(ry)) / 180 - 0.5)) + ")";
@@ -72,22 +84,11 @@ const R = {
 	},
 	// Cube & faces selectors
 	cube = document.querySelector("#cube"),
-	cubeTop = cube.querySelector(".face#top"),
-	cubeBottom = cube.querySelector(".face#bottom"),
-	cubeFront = cube.querySelector(".face#front"),
-	cubeBack = cube.querySelector(".face#back"),
-	cubeLeft = cube.querySelector(".face#left"),
-	cubeRight = cube.querySelector(".face#right");
-let facesDisplayed = false;
-
-// Cube initial rotation angle
-let transform = `rotateX(${R.y.toFixed(P)}deg) rotateY(${R.x.toFixed(P)}deg)`;
-cube.style["-webkit-transform"] = transform;
-cube.style["-ms-transform"] = transform;
-cube.style.transform = transform;
-shadowFacing(R.y); // Apply shadow
+	cubeTop = cube.children[0],
+	cubeBottom = cube.children[1],
+	cubeFront = cube.children[2],
+	cubeBack = cube.children[3],
+	cubeLeft = cube.children[4],
+	cubeRight = cube.children[5];
 // Event listeners
-addEventListener("mousedown", M.down);
-addEventListener("touchstart", M.down);
-addEventListener("mouseup", M.up);
-addEventListener("touchend", M.up);
+if (DeviceOrientationEvent) addEventListener("deviceorientation", move)
