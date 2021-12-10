@@ -14,7 +14,7 @@ const R = {x: 0, y: 0},
 		if (R.x > 360) R.x -= 360;*/
 		// if (R.y < -45) R.y = -45;
 		// if (R.y > 45) R.y = 45;
-		document.querySelector(".test").textContent = `R.y = ${R.y}`;
+		document.querySelector(".test").textContent = `R.x = ${R.x}`;
 		let transform = `rotateX(${R.y}deg) rotateY(${-R.x}deg)`;
 		cube.style["-webkit-transform"] = transform;
 		cube.style.transform = transform;
