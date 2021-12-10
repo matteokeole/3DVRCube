@@ -1,5 +1,4 @@
-// Cube rotation values
-const R = {x: 0, y: 0},
+const R = {x: 0, y: 0}, // Cube rotation values
 	// Mouse events
 	move = e => {
 		R.x = e.gamma;
