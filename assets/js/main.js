@@ -8,12 +8,12 @@ const R = {x: 0, y: 0},
 	// Mouse events
 	move = e => {
 		R.x = e.gamma;
-		R.y = e.beta;
-		if (R.x < -360) R.x += 360;
+		R.y = -e.beta;
+		/*if (R.x < -360) R.x += 360;
 		if (R.x > 360) R.x -= 360;
 		if (R.y < -90) R.y = -90;
-		if (R.y > 90) R.y = 90;
-		let transform = `rotateX(${-R.y}deg) rotateY(${-R.x}deg)`;
+		if (R.y > 90) R.y = 90;*/
+		let transform = `rotateX(${R.y}deg) rotateY(${-R.x}deg)`;
 		cube.style["-webkit-transform"] = transform;
 		cube.style.transform = transform;
 		shadowFacing(R.y)
