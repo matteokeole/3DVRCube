@@ -8,7 +8,7 @@ const R = {x: 0, y: 0},
 		let transform = `rotateX(${-R.y}deg) rotateY(${-R.x}deg)`;
 		cube.style["-webkit-transform"] = transform;
 		cube.style.transform = transform;
-		shadowFacing(R.y)
+		shadowFacing(R.y - 90)
 	},
 	shadowFacing = ry => {
 		// Apply a shadow to the faces
