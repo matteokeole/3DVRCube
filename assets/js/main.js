@@ -19,7 +19,7 @@ const R = {
 		if (R.x > 360) R.x -= 360;
 		if (R.y < -90) R.y = -90;
 		if (R.y > 90) R.y = 90;
-		let transform = `rotateX(${R.x.toFixed(P)}deg) rotateY(${R.y.toFixed(P)}deg)`;
+		let transform = `rotateX(${R.y.toFixed(P)}deg) rotateY(${R.x.toFixed(P)}deg)`;
 		cube.style["-webkit-transform"] = transform;
 		cube.style.transform = transform;
 		shadowFacing(R.y)
