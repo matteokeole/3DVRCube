@@ -12,11 +12,9 @@ body {
 	position: absolute;
 	overflow: hidden;
 	background-color: #000;
-	cursor: pointer;
 	user-select: none;
 	font-family: monospace
 }
-body:active {cursor: grab}
 
 /* Cube and faces */
 
@@ -29,7 +27,7 @@ body:active {cursor: grab}
 	bottom: 0;
 	left: 0;
 	position: absolute;
-	color: transparent;
+	color: rgba(0, 0, 0, 0.8);
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d
 }
