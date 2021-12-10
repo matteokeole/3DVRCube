@@ -14,22 +14,17 @@ const R = {x: 0, y: 0}, // Cube rotation values
 	// Cube shadow facing
 	shadowFacing = ry => {
 		// Apply a shadow to the faces
-		cubeTop.style.boxShadow = `inset 0 0 0 100px rgba(255, 255, 255, ${Math.abs((180 - Math.abs(ry)) / 180 - 0.5)})`;
-		cubeBottom.style.boxShadow = `inset 0 0 0 100px rgba(0, 0, 0, ${Math.abs((180 - Math.abs(ry)) / 180 - 0.5)})`;
+		cube.children[0].style.boxShadow = `inset 0 0 0 100px rgba(255, 255, 255, ${Math.abs((180 - Math.abs(ry)) / 180 - 0.5)})`;
+		cube.children[1].style.boxShadow = `inset 0 0 0 100px rgba(0, 0, 0, ${Math.abs((180 - Math.abs(ry)) / 180 - 0.5)})`;
 		let rgb = (R.y >= 0) ? "255, 255, 255" : (R.y < 0) ? "0, 0, 0" : undefined;
 		if (rgb) {
-			[cubeFront, cubeBack, cubeLeft, cubeRight].forEach(face => {
+			[cube.children].forEach(face => {
 				face.style.boxShadow = `inset 0 0 0 100px rgba(${rgb}, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5)})`
 			})
 		}
 	},
 	// Cube & faces selectors
-	cube = document.querySelector("#cube"),
-	cubeTop = cube.children[0],
-	cubeBottom = cube.children[1],
-	cubeFront = cube.children[2],
-	cubeBack = cube.children[3],
-	cubeLeft = cube.children[4],
-	cubeRight = cube.children[5];
+	cube = document.querySelector("#cube");
 // Device orientation change event
-if (DeviceOrientationEvent) addEventListener("deviceorientation", move)
+if (DeviceOrientationEvent) addEventListener("deviceorientation", move);
+else alert("The DeviceOrientationEvent isn't supported on your browser!")
