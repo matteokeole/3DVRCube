@@ -5,7 +5,7 @@ const R = {x: 0, y: 0}, // Cube rotation values
 	move = e => {
 		R.x = e.gamma;
 		R.y = e.beta;
-		document.querySelector(".test").innerHTML = `${R.x}<br>${R.y}`;
+		document.querySelector(".test").textContent = R.y.toFixed(P);
 		let transform = `rotateX(${-R.y.toFixed(P)}deg) rotateY(${-R.x.toFixed(P)}deg)`;
 		cube.style["-webkit-transform"] = transform;
 		cube.style.transform = transform;
