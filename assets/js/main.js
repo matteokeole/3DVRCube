@@ -58,18 +58,18 @@ const R = {x: 0, y: 0},
 	},*/
 	shadowFacing = ry => {
 		// Apply a shadow to the faces
-		cubeTop.style.boxShadow = `inset 0 0 0 100px rgba(255, 255, 255, ${Math.abs((180 - Math.abs(ry)) / 180 - 0.5))})`;
-		cubeBottom.style.boxShadow = `inset 0 0 0 100px rgba(0, 0, 0, ${Math.abs((180 - Math.abs(ry)) / 180 - 0.5))})`;
+		cubeTop.style.boxShadow = `inset 0 0 0 100px rgba(255, 255, 255, ${Math.abs((180 - Math.abs(ry)) / 180 - 0.5)})`;
+		cubeBottom.style.boxShadow = `inset 0 0 0 100px rgba(0, 0, 0, ${Math.abs((180 - Math.abs(ry)) / 180 - 0.5)})`;
 		if (R.y >= 0) {
-			cubeFront.style.boxShadow = `inset 0 0 0 100px rgba(255, 255, 255, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5))})`;
-			cubeBack.style.boxShadow = `inset 0 0 0 100px rgba(255, 255, 255, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5))})`;
-			cubeLeft.style.boxShadow = `inset 0 0 0 100px rgba(255, 255, 255, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5))})`;
-			cubeRight.style.boxShadow = `inset 0 0 0 100px rgba(255, 255, 255, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5))})`
+			cubeFront.style.boxShadow = `inset 0 0 0 100px rgba(255, 255, 255, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5)})`;
+			cubeBack.style.boxShadow = `inset 0 0 0 100px rgba(255, 255, 255, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5)})`;
+			cubeLeft.style.boxShadow = `inset 0 0 0 100px rgba(255, 255, 255, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5)})`;
+			cubeRight.style.boxShadow = `inset 0 0 0 100px rgba(255, 255, 255, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5)})`
 		} else if (R.y < 0) {
-			cubeFront.style.boxShadow = `inset 0 0 0 100px rgba(0, 0, 0, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5))})`;
-			cubeBack.style.boxShadow = `inset 0 0 0 100px rgba(0, 0, 0, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5))})`;
-			cubeLeft.style.boxShadow = `inset 0 0 0 100px rgba(0, 0, 0, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5))})`;
-			cubeRight.style.boxShadow = `inset 0 0 0 100px rgba(0, 0, 0, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5))})`
+			cubeFront.style.boxShadow = `inset 0 0 0 100px rgba(0, 0, 0, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5)})`;
+			cubeBack.style.boxShadow = `inset 0 0 0 100px rgba(0, 0, 0, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5)})`;
+			cubeLeft.style.boxShadow = `inset 0 0 0 100px rgba(0, 0, 0, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5)})`;
+			cubeRight.style.boxShadow = `inset 0 0 0 100px rgba(0, 0, 0, ${Math.abs((90 - Math.abs(ry)) / 180 - 0.5)})`
 		}
 	},
 	// Cube & faces selectors
