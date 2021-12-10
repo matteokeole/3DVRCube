@@ -13,48 +13,32 @@ const R = {x: 0, y: 0},
 		if (R.x > 360) R.x -= 360;
 		if (R.y < -90) R.y = -90;
 		if (R.y > 90) R.y = 90;
-		let transform = `rotateX(${-R.x}deg) rotateY(${R.y}deg)`;
+		let transform = `rotateX(${R.x}deg) rotateY(${-R.y}deg)`;
 		cube.style["-webkit-transform"] = transform;
 		cube.style.transform = transform;
 		shadowFacing(R.y)
 	},
-	/*M = {
-		down: function(e) {
-			if (!e.clientX) {
-				// Touch screen
-				R.on.x = -w2 + e.touches[0].clientX;
-				R.on.y = h2 + -e.touches[0].clientY
-			} else {
-				R.on.x = -w2 + e.clientX;
-				R.on.y = h2 + -e.clientY
-			}
-			R.old.x = R.x;
-			R.old.y = R.y;
-			document.addEventListener("mousemove", M.move);
-			document.addEventListener("touchmove", M.move)
-		},
-		move: function(e) {
-			if (!e.clientX) {
-				// Touch screen
-				R.now.x = -w2 + e.touches[0].clientX;
-				R.now.y = h2 + -e.touches[0].clientY
-			} else {
-				R.now.x = -w2 + e.clientX;
-				R.now.y = h2 + -e.clientY
-			}
-			R.x = ((R.now.x - R.on.x) / S) + R.old.x;
-			R.y = ((R.now.y - R.on.y) / S) + R.old.y;
-			if (R.x < -360) R.x += 360;
-			if (R.x > 360) R.x -= 360;
-			if (R.y < -90) R.y = -90;
-			if (R.y > 90) R.y = 90;
-			// Cube motion
-			let transform = `rotateX(${R.y.toFixed(P)}deg) rotateY(${R.x.toFixed(P)}deg)`;
-			cube.style["-webkit-transform"] = transform;
-			cube.style["-ms-transform"] = transform;
-			cube.style.transform = transform;
-			shadowFacing(R.y)
+	/*move = e => {
+		if (!e.clientX) {
+			// Touch screen
+			R.now.x = -w2 + e.touches[0].clientX;
+			R.now.y = h2 + -e.touches[0].clientY
+		} else {
+			R.now.x = -w2 + e.clientX;
+			R.now.y = h2 + -e.clientY
 		}
+		R.x = ((R.now.x - R.on.x) / S) + R.old.x;
+		R.y = ((R.now.y - R.on.y) / S) + R.old.y;
+		if (R.x < -360) R.x += 360;
+		if (R.x > 360) R.x -= 360;
+		if (R.y < -90) R.y = -90;
+		if (R.y > 90) R.y = 90;
+		// Cube motion
+		let transform = `rotateX(${R.y.toFixed(P)}deg) rotateY(${R.x.toFixed(P)}deg)`;
+		cube.style["-webkit-transform"] = transform;
+		cube.style["-ms-transform"] = transform;
+		cube.style.transform = transform;
+		shadowFacing(R.y)
 	},*/
 	shadowFacing = ry => {
 		// Apply a shadow to the faces
